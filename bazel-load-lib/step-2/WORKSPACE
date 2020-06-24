@@ -1,0 +1,29 @@
+new_local_repository(
+    name = "system_libs",
+    # pkg-config --variable=libdir x11
+    path = "/Users/sukku/development/bazel-work/bazel-load-lib/step-2",
+    # "/usr/local/lib",
+    build_file_content = """
+cc_library(
+    name = "hello-greet",
+    srcs = ["libhello-greet.so"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
+
+new_local_repository(
+    name = "system_libs_headers",
+    # pkg-config --variable=libdir x11
+    path = "/Users/sukku/development/bazel-work/bazel-load-lib/step-2/include",
+    ## path = "/usr/local/include",
+    build_file_content = """
+cc_library(
+    name = "hello-greet-header",
+    hdrs = glob([
+        "*.h"
+    ]),
+    visibility = ["//visibility:public"],
+)
+""",
+)

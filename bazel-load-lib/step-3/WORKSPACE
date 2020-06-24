@@ -1,0 +1,12 @@
+new_local_repository(
+    name = "system_libs",
+    path = "/Users/sukku/development/bazel-work/bazel-load-lib/step-3",
+    # "/usr/local/lib", SENLIB_PATH
+    build_file_content = """
+cc_library(
+    name = "myfunctions",
+    srcs = ["libmyfunctions.so"],
+    visibility = ["//visibility:public"],
+)
+""",
+)
